@@ -1,0 +1,18 @@
+{
+    "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+    "@type": "SoftwareSourceCode",
+    "identifier": "https://github.com/miguelJS-UPM/Artificial-Intelligence-And-Open-Science-In-Research-Software-Engineering.git",
+    "description": "Pipeline en Python para extraer y analizar información de PDFs de artículos científicos usando Grobid.",
+    "name": "[Nombre de tu proyecto]",
+    "codeRepository": "https://github.com/miguelJS-UPM/Artificial-Intelligence-And-Open-Science-In-Research-Software-Engineering.git",
+    "issueTracker": "https://github.com/miguelJS-UPM/Artificial-Intelligence-And-Open-Science-In-Research-Software-Engineering.git/issues",
+    "license": "https://spdx.org/licenses/[Identificador de tu licencia, ej: MIT]",
+    "version": "1.0.0",
+    "author": [
+        {
+            "@type": "Person",
+            "givenName": "Miguel",
+            "familyName": "Jiménez Sandoval"
+        }
+    ]
+}

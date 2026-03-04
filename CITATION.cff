@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Jiménez Sandoval"
+    given-names: "Miguel"
+    orcid: "https://orcid.org/0000-0000-0000-0000" # (Opcional, bórralo si no tienes ORCID)
+title: "[Nombre de tu proyecto]"
+version: 1.0.0
+date-released: 2026-03-11
+url: "https://github.com/miguelJS-UPM/Artificial-Intelligence-And-Open-Science-In-Research-Software-Engineering.git"
