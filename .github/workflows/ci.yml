@@ -1,0 +1,30 @@
+name: Integracion Continua (CI)
+
+# Esto le dice a GitHub que ejecute el test cada vez que hagas un "push"
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Copiar el código de tu repositorio
+    - name: Check out repository
+      uses: actions/checkout@v3
+
+    # 2. Instalar Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+
+    # 3. Instalar las dependencias de tu requirements.txt
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # 4. Ejecutar el test que acabamos de crear
+    - name: Run Tests
+      run: |
+        python -m unittest test_main.py
