@@ -26,9 +26,9 @@ Para asegurar la reproducibilidad, este proyecto proporciona dos formas de ejecu
 ## Metodología de Validación
 *(El enunciado pide explícitamente esto)*
 Para validar los resultados obtenidos:
-- **Nube de palabras:** [Explicarás aquí cómo verificaste que las palabras tengan sentido, por ejemplo, eliminando 'stop words'].
-- **Conteo de figuras:** [Explicarás aquí cómo abriste un par de PDFs manualmente para contar las figuras y comprobar que tu código daba el mismo número].
-- **Extracción de enlaces:** [Explicarás aquí si comprobaste manualmente que las URLs extraídas son válidas].
+- **Nube de palabras:** Buscando una de las palabras más grande, "framework" archivo por archivo, salen en numerosas ocasiones, especialmente en el "2603.03233v1.pdf" con un total de 76 veces, en el resto mantiene una media de 10/20 y algunos entre 0/5.
+- **Conteo de figuras:** Si abrimos los PDFs de manera manual y contamos las figuras y las explicaciones de las mismas, vemos que coincide con la gráfica de barras generada.
+- **Extracción de enlaces:** Abriendo el archivo, copiando las URLs generadas y comprobandolas, son válidas y no salta ningún tipo de error.
 
 ## Limitaciones
 - El análisis depende de la precisión de Grobid para parsear la estructura del PDF.
