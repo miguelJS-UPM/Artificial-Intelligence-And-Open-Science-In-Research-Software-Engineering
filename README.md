@@ -1,7 +1,7 @@
 # Artificial-Intelligence-And-Open-Science-In-Research-Software-Engineering
 
+[![Documentation Status](https://readthedocs.org/projects/ciencia-abierta-miguel/badge/?version=latest)](https://ciencia-abierta-miguel.readthedocs.io/es/latest/?badge=latest)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX) 
-*(Nota: Cambiaremos este enlace cuando generemos el DOI real en Zenodo al final)*
 
 ## Descripción
 Este proyecto analiza 10 artículos científicos de acceso abierto utilizando la herramienta Grobid. El pipeline extrae texto estructurado de PDFs y genera:
@@ -15,7 +15,6 @@ Para asegurar la reproducibilidad, este proyecto proporciona dos formas de ejecu
 ### Opción A: Usando Docker (Recomendado)
 1. Clona este repositorio.
 2. Ejecuta `docker-compose up -d` para levantar el servicio de Grobid y el entorno del script.
-*(Añadiremos los comandos exactos más adelante)*
 
 ### Opción B: Entorno virtual local (Python)
 1. Requiere Python 3.x instalado.
@@ -24,7 +23,6 @@ Para asegurar la reproducibilidad, este proyecto proporciona dos formas de ejecu
 4. Ejecuta el script principal: `python main.py`
 
 ## Metodología de Validación
-*(El enunciado pide explícitamente esto)*
 Para validar los resultados obtenidos:
 - **Nube de palabras:** Buscando una de las palabras más grande, "framework" archivo por archivo, salen en numerosas ocasiones, especialmente en el "2603.03233v1.pdf" con un total de 76 veces, en el resto mantiene una media de 10/20 y algunos entre 0/5.
 - **Conteo de figuras:** Si abrimos los PDFs de manera manual y contamos las figuras y las explicaciones de las mismas, vemos que coincide con la gráfica de barras generada.
