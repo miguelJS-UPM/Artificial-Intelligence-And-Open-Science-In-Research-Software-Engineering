@@ -1,12 +1,31 @@
 import os
+import time
 import requests
 from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 
 # Configuración
-GROBID_URL = "http://localhost:8070/api/processFulltextDocument"
+GROBID_URL = os.environ.get("GROBID_URL", "http://localhost:8070/api/processFulltextDocument")
 DATA_DIR = "data"
+
+def wait_for_grobid():
+    """Espera hasta que Grobid esté completamente encendido y respondiendo"""
+    print("Esperando a que Grobid despierte (puede tardar unos 15 segundos)...")
+    base_url = GROBID_URL.split('/api/')[0] + '/api/isalive'
+    
+    for i in range(30): # Intenta durante 30 segundos
+        try:
+            response = requests.get(base_url)
+            if response.status_code == 200:
+                print("¡Grobid está listo y escuchando!\n")
+                return True
+        except requests.ConnectionError:
+            pass # Si da error de conexión, simplemente lo ignoramos y seguimos esperando
+        
+        time.sleep(1) # Esperamos 1 segundo antes de volver a preguntar
+        
+    return False
 
 def process_pdfs():
     abstracts_text = ""
@@ -47,8 +66,6 @@ def process_pdfs():
 
     return abstracts_text, figures_count, links_per_paper
 
-# --- NUEVAS FUNCIONES PARA GENERAR LOS RESULTADOS VISUALES ---
-
 def generate_wordcloud(text):
     print("\nGenerando nube de palabras...")
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
@@ -69,7 +86,6 @@ def generate_figure_chart(figures_dict):
     plt.xlabel('Artículos')
     plt.ylabel('Número de Figuras')
     plt.title('Número de figuras por artículo')
-    # Rotamos los nombres de los PDFs para que se puedan leer bien
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
     plt.savefig('figures_chart.png')
@@ -89,10 +105,16 @@ def save_links(links_dict):
     print(" -> Creado: 'links.txt'")
 
 if __name__ == "__main__":
-    print("Iniciando análisis con Grobid...\n")
+    print("Iniciando contenedor de análisis...\n")
+    
+    # 1. Obligamos a Python a esperar a Grobid
+    if not wait_for_grobid():
+        print("Error crítico: Grobid no respondió después de 30 segundos. Saliendo...")
+        exit(1)
+        
+    # 2. Ejecutamos el pipeline normal
     abstracts, figures, links = process_pdfs()
     
-    # Cumplir con los 3 requisitos de la práctica
     if abstracts:
         generate_wordcloud(abstracts)
     if figures:
@@ -100,4 +122,4 @@ if __name__ == "__main__":
     if links:
         save_links(links)
         
-    print("\n¡Análisis completado con éxito!")
+    print("\n¡Análisis completado con éxito dentro de Docker!")

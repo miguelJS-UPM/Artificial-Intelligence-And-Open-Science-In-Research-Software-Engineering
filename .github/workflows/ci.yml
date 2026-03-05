@@ -1,6 +1,5 @@
 name: Integracion Continua (CI)
 
-# Esto le dice a GitHub que ejecute el test cada vez que hagas un "push"
 on: [push]
 
 jobs:

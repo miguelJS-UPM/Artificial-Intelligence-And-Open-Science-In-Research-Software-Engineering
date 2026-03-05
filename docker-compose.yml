@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  grobid:
+    image: lfoppiano/grobid:0.8.0
+    ports:
+      - "8070:8070"
+
+  app:
+    build: . # Construye la imagen usando tu Dockerfile
+    volumes:
+      - ./data:/app/data # Conecta tu carpeta data local con la del contenedor
+    environment:
+      # Le decimos a tu script cómo se llama la máquina de Grobid en esta red privada
+      - GROBID_URL=http://grobid:8070/api/processFulltextDocument
+    depends_on:
+      - grobid # Asegura que Grobid arranque primero
