@@ -10,7 +10,6 @@ GROBID_URL = os.environ.get("GROBID_URL", "http://localhost:8070/api/processFull
 DATA_DIR = "data"
 
 def wait_for_grobid():
-    """Espera hasta que Grobid esté completamente encendido y respondiendo"""
     print("Esperando a que Grobid despierte (puede tardar unos 15 segundos)...")
     base_url = GROBID_URL.split('/api/')[0] + '/api/isalive'
     

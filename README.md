@@ -30,7 +30,6 @@ Para validar los resultados obtenidos:
 
 ## Limitaciones
 - El análisis depende de la precisión de Grobid para parsear la estructura del PDF.
-- [Añade aquí otras limitaciones que encuentres al programar].
 
 ## Licencia
 Este proyecto está bajo la licencia Apache 2.0.
