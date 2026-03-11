@@ -1,6 +1,5 @@
 # Artificial-Intelligence-And-Open-Science-In-Research-Software-Engineering
 
-[![Documentation Status](https://readthedocs.org/projects/ciencia-abierta-miguel/badge/?version=latest)](https://ciencia-abierta-miguel.readthedocs.io/es/latest/?badge=latest)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18880539.svg)](https://doi.org/10.5281/zenodo.18880539)
 
 ## Descripción
